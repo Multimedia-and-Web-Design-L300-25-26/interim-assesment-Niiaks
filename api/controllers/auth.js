@@ -61,8 +61,8 @@ export async function loginUser(req, res) {
       {
         expires: new Date(Date.now() + 15 * 60 * 1000),
         httpOnly: true,
-        secure: NODE_ENV === "prod",
-        sameSite: "strict",
+        secure: true,
+        sameSite: "none",
       },
     );
 
