@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { getAllCryptos, getTopGainers, getNewListings, addCrypto } from "../controllers/crypto.js";
+import {
+  getAllCryptos,
+  getTopGainers,
+  getNewListings,
+  addCrypto,
+} from "../controllers/crypto.js";
 
 const router = Router();
 

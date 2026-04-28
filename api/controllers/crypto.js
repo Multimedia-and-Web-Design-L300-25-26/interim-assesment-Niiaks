@@ -14,8 +14,12 @@ export async function getAllCryptos(req, res) {
 // GET /crypto/gainers - Top gainers sorted highest to lowest
 export async function getTopGainers(req, res) {
   try {
-    const cryptos = await Crypto.find({ change24h: { $gt: 0 } }).sort({ change24h: -1 });
-    res.status(200).json({ message: "Top gainers fetched successfully", cryptos });
+    const cryptos = await Crypto.find({ change24h: { $gt: 0 } }).sort({
+      change24h: -1,
+    });
+    res
+      .status(200)
+      .json({ message: "Top gainers fetched successfully", cryptos });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
@@ -26,7 +30,9 @@ export async function getTopGainers(req, res) {
 export async function getNewListings(req, res) {
   try {
     const cryptos = await Crypto.find().sort({ createdAt: -1 });
-    res.status(200).json({ message: "New listings fetched successfully", cryptos });
+    res
+      .status(200)
+      .json({ message: "New listings fetched successfully", cryptos });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
@@ -41,7 +47,13 @@ export async function addCrypto(req, res) {
   }
 
   try {
-    const crypto = await Crypto.create({ name, symbol, price, image, change24h });
+    const crypto = await Crypto.create({
+      name,
+      symbol,
+      price,
+      image,
+      change24h,
+    });
     res.status(201).json({ message: "Crypto created successfully", crypto });
   } catch (error) {
     console.log(error);

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
@@ -13,8 +13,8 @@ const schema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    min: 8
-  }
+    min: 8,
+  },
 });
 
 const User = mongoose.model("User", schema);
